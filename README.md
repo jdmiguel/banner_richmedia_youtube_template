@@ -27,23 +27,23 @@ Firstly, You should decide the frames number of your banner (it depends on the a
 
 Inside this object, you will find a couple of objects:
 
-* ** PLAYEROBJ **:
+- ** PLAYEROBJ **:
 
 This object lets you customize the player. You have the next properties:
 
-    * WIDTH: **The player width**
-    * HEIGHT: **The player height**
-    * POS: **The player positions** in x and y
-    * CONTAINERPARENTID: **The id of the parent player container**
-    * CONTAINERPARENTAUTOALPHA: If this value is zero, **the parent player container sets its opacity** to zero **and its visibility** to hidden.
-    * CLICKTAGFUNCTION: **The clicktag function**.
-    * SETIDVIDEO: By setting the **initial video**.
-    * ARRAYIDVIDEOS: By setting the **order of the videos**
-    * ARRAYBTNSRC: **The file name of every video button**.
-    * ARRAYBTNPOSX: **The x position of every video button**.
-    * ARRAYBTNPOSY: **The y position of every video button**.
+* WIDTH: **The player width**
+* HEIGHT: **The player height**
+* POS: **The player positions** in x and y
+* CONTAINERPARENTID: **The id of the parent player container**
+* CONTAINERPARENTAUTOALPHA: If this value is zero, **the parent player container sets its opacity** to zero **and its visibility** to hidden.
+* CLICKTAGFUNCTION: **The clicktag function**.
+* SETIDVIDEO: By setting the **initial video**.
+* ARRAYIDVIDEOS: By setting the **order of the videos**
+* ARRAYBTNSRC: **The file name of every video button**.
+* ARRAYBTNPOSX: **The x position of every video button**.
+* ARRAYBTNPOSY: **The y position of every video button**.
 
-* ** YOUTUBEPLAYEROPTIONS **:
+- ** YOUTUBEPLAYEROPTIONS **:
 
 With this object, you can change differents video properties such as setting video controls or activating the video autoplay.
 
