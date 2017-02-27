@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <title>HTML5 Banner Richmedia Template</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+<body>
+    <!-- YOU MUST CUSTOMIZE DATA BANNER -->
+    <div id="container-banner" data-w="980" data-h="250" data-bg-color="#FFFFFF" data-border="1px solid #C5C5C5" data-cover="true"></div>
+
+    <script type="text/javascript" src="../lib/TweenMax.min.js"></script>
+    <script type="text/javascript" src="../lib/youtube.js"></script>
+    <script type="text/javascript" src="assets/js/jdm_richmediaYT.min.js"></script>
+    <script type="text/javascript">
+
+        var imgPath, videoPath, frameObj, clicktagFunction, configPlayer, timelineObj, richmediaYT;
+
+        ///////   YOU MUST CUSTOMIZE IMAGES AND VIDEO PATH   ///////
+
+        imgPath = 'assets/img/';
+
+        ///////   YOU MUST CUSTOMIZE FRAME OBJECT   ///////
+
+        frameObj = {
+            frame2:['bg.png','txt1.png','txt2.png','txt3.png','txt4.png','txt5.png','txt6.png','txt7.png','logo.png'],
+            frame1:['white_sup.png','white_inf.png','black.png','grey.png']
+        };
+
+        ///////   YOU MUST CUSTOMIZE VIDEO OBJECT   ///////
+
+        clicktagFunction = function(){
+            /* YOU MUST CUSTOMIZE YOUR CLICKTAG FUNCTION */
+            console.log('go clicktagFunction');
+        };
+
+        configPlayer = {
+            ///////////  CUSTOMIZAR EL OBJ PLAYER  /////////////
+
+            /* VARIOS VIDEOS, VARIOS BOTONES */
+
+            playerObj: {
+              width: '360',
+              height: '200',
+              pos: {x:'513',y:'23'},
+              containerId: 'youtube-container',
+              containerParentId: 'video-wrap',
+              containerParentAutoAlpha: 0,
+              clicktagFunction: clicktagFunction,
+              setIdVideo: 'MaWcS-10NIw',
+              arrayIdVideos: ['MaWcS-10NIw','amSFUednQsU','OGAKOCc_fLQ'],
+              arrayBtnSrc: ['btn1.png','btn2.png','btn3.png'],
+              arrayBtnPosX: ['424','424','424'],
+              arrayBtnPosY: ['69','113','154']
+            },
+
+            /* UN SOLO VIDEO, SIN BOTÓN */
+
+            /*playerObj: {
+              playerwidth: '360',
+              playerheight: '200',
+              playerPositions: {x:'513',y:'23'},
+              youtubeVideoId: 'MaWcS-10NIw',
+              arrayIdVideo: ['MaWcS-10NIw']
+            },*/
+
+            youtubePlayerOptions: {
+              html5: 1,
+              // Boolean - Enable Javascript API - 1 or 0
+              enablejsapi: 1,
+              // Boolean - Fullscreen - 1 or 0
+              fs: 1,
+              // Boolean - Show Controls - 1 or 0
+              controls: 1,
+              // Boolean - Show Info Bar - 1 or 0
+              showinfo: 0,
+              // Boolean - Don't Show Related VideosBoolean - 1 or 0
+              rel: 0,
+              // Boolean - Hide YouTube Logo - 1 or 0
+              modestbranding: 0,
+              autoplay: 1
+            }
+        }
+
+        ///////   YOU MUST CUSTOMIZE TIMELINE OBJECT   ///////
+
+        timelineObj = {
+          /* TAG IN WHICH BANNER STARTS */
+          initLabel: 'step_1',
+
+          /* METHOD FOR PAUSING BANNER (IN SECONDS OR USING TAGS)*/
+          addPauseAt: undefined,
+
+          /* LOOPS NUMBER (-1 IS INFINITE) */
+          loopIteration: -1,
+
+          /* TAG IN WHICH TIMELINE STARTS WHEN THE LOOP STARTS */
+          loopLabelInit: 'step_12',
+
+          /* TAG IN WHICH BANNER STOPS WHEN THE LAST LOOP ENDS */
+          loopLabelEnd: 'step_27',
+
+          /* TWEENS ARRAY FOR BUILDING YOUR BANNER TIMELINE */
+          arrayTween:[
+            {type: 'to', id: '#cover', time:.5, prop: {autoAlpha:0}, delay: '+=0'},
+            {type: 'fromTo', id: '#white_sup', time:.8, propInit: {x:-10, y:-400, opacity:1}, propEnd: {x:-20, y:-205, opacity:1, ease:Power3.easeOut}, delay: '+=0'},
+            {type: 'fromTo', id: '#white_inf', time:.7, propInit: {x:-10, y:400, opacity:1}, propEnd: {x:-20, y:110, opacity:1, ease:Power3.easeOut}, delay: '-=.8'},
+            {type: 'fromTo', id: '#black', time:.7, propInit: {x:1010, y:-229, opacity:1}, propEnd: {x:482, y:-229, opacity:1, ease:Power3.easeOut}, delay: '+=.5'},
+            {type: 'fromTo', id: '#grey', time:.7, propInit: {x:-1400, y:121, opacity:1}, propEnd: {x:-890, y:121, opacity:1, ease:Power3.easeOut}, delay: '-=.7'},
+            {type: 'fromTo', id: '#frame2', time:.1, propInit: {autoAlpha:0}, propEnd: {autoAlpha:1}, delay: '-=.5'},
+            {type: 'to', id: '#frame1', time:.7, prop: {x:-60, y:-30, rotation:-20, ease:Power3.easeOut, transformOrigin:'65% 50%'}, delay: '+=.5'},
+            {type: 'to', id: '#white_sup', time:.6, prop: {x:-1400, ease:Power3.easeOut}, delay: 3.7},
+            {type: 'to', id: '#black', time:.7, prop: {x:1300, ease:Power3.easeOut}, delay: 3.8},
+            {type: 'to', id: '#white_inf', time:.7, prop: {x:1000, ease:Power3.easeOut}, delay: 3.7},
+            {type: 'to', id: '#grey', time:.7, prop: {x:-1700, ease:Power3.easeOut}, delay: 3.8},
+            {type: 'to', id: '#video-wrap', time:.5, prop: {autoAlpha:1, ease:Power3.easeOut}, delay: '-=.2'},
+            {type: 'from', id: '#txt1', time:.5, prop: {y:-20, opacity:0, ease:Power3.easeOut}, delay: '+=0'},
+            {type: 'from', id: '#txt2', time:.5, prop: {y:20, opacity:0, ease:Power3.easeOut}, delay: '-=.2'},
+            {type: 'to', id: '#txt1', time:.5, prop: {y:-150, opacity:0, ease:Power3.easeOut}, delay: '+=2'},
+            {type: 'to', id: '#txt2', time:.5, prop: {y:150, opacity:0, ease:Power3.easeOut}, delay: '-=.5'},
+            {type: 'from', id: '#txt3', time:.5, prop: {scale:1.3, opacity:0, transformOrigin:'25% 42%', ease:Back.easeOut}, delay: '-=.3'},
+            {type: 'from', id: '#txt4', time:.5, prop: {scale:1.3, opacity:0, transformOrigin:'25% 50%', ease:Back.easeOut}, delay: '-=.2'},
+            {type: 'from', id: '#txt5', time:.5, prop: {scale:1.3, opacity:0, transformOrigin:'25% 60%', ease:Back.easeOut}, delay: '-=.2'},
+            {type: 'to', id: '#txt3', time:.4, prop: {rotationX:90, scaleY:.8, opacity:0, transformOrigin:'50% 42%', ease:Back.easeIn}, delay: '+=2.2'},
+            {type: 'to', id: '#txt4', time:.4, prop: {rotationX:90, scaleY:.8, opacity:0, transformOrigin:'50% 50%', ease:Back.easeIn}, delay: '-=.35'},
+            {type: 'to', id: '#txt5', time:.4, prop: {rotationX:90, scaleY:.8, pacity:0, transformOrigin:'50% 60%', ease:Back.easeIn}, delay: '-=.35'},
+            {type: 'from', id: '#txt6', time:.5, prop: {x:15, opacity:0, ease:Power3.easeOut}, delay: '+=0'},
+            {type: 'from', id: '#txt7', time:.5, prop: {x:-15, opacity:0, ease:Power3.easeOut}, delay: '-=.5'},
+            {type: 'to', id: '#txt6', time:.5, prop: {x:-15, opacity:0, ease:Power3.easeIn}, delay: '+=2.2'},
+            {type: 'to', id: '#txt7', time:.5, prop: {x:15, opacity:0, ease:Power3.easeIn}, delay: '-=.5'},
+            {type: 'from', id: '#logo', time:.7, prop: {scale:.5, opacity:0, transformOrigin:'25% 50%', ease:Power2.easeOut}, delay: '-=.1'},
+            {type: 'to', id: '#logo', time:.7, prop: {opacity:0, ease:Power2.easeOut}, delay: '+=2.5'},
+            //{type: 'to', id: '#cover', time:.5, prop: {autoAlpha:1}, delay: '+=2.5'}
+          ]
+        };
+
+        document.addEventListener('DOMContentLoaded', function(event) {
+            richmediaYT = new JDMRichmediaYT(document.getElementById('container-banner'),imgPath,frameObj,timelineObj,configPlayer);
+        });
+    </script>
+</body>
+</html>
