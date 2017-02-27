@@ -27,7 +27,7 @@ Firstly, You should decide the frames number of your banner (it depends on the a
 
 Inside this object, you will find a couple of objects:
 
-*PLAYEROBJ*:
+*PLAYEROBJ*
 
 This object lets you customize the player. You have the next properties:
 
@@ -43,7 +43,7 @@ This object lets you customize the player. You have the next properties:
 * ARRAYBTNPOSX: **The x position of every video button**.
 * ARRAYBTNPOSY: **The y position of every video button**.
 
-*YOUTUBEPLAYEROPTIONS*:
+*YOUTUBEPLAYEROPTIONS*
 
 With this object, you can change differents video properties such as setting video controls or activating the video autoplay.
 
