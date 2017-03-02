@@ -11,7 +11,7 @@
 
     <script type="text/javascript" src="../lib/TweenMax.min.js"></script>
     <script type="text/javascript" src="../lib/youtube.js"></script>
-    <script type="text/javascript" src="assets/js/jdm_richmediaYT.min.js"></script>
+    <script type="text/javascript" src="assets/js/richmediaYT.min.js"></script>
     <script type="text/javascript">
 
         var imgPath, videoPath, frameObj, clicktagFunction, configPlayer, timelineObj, richmediaYT;
@@ -48,21 +48,27 @@
               containerParentAutoAlpha: 0,
               clicktagFunction: clicktagFunction,
               setIdVideo: 'MaWcS-10NIw',
-              arrayIdVideos: ['MaWcS-10NIw','amSFUednQsU','OGAKOCc_fLQ'],
+              arrayIdVideos: ['MaWcS-10NIw','OGAKOCc_fLQ','amSFUednQsU'],
               arrayBtnSrc: ['btn1.png','btn2.png','btn3.png'],
               arrayBtnPosX: ['424','424','424'],
               arrayBtnPosY: ['69','113','154']
             },
 
-            /* UN SOLO VIDEO, SIN BOTÓN */
+            /// UN SOLO VIDEO, SIN BOTÓN ///
 
-            /*playerObj: {
-              playerwidth: '360',
-              playerheight: '200',
-              playerPositions: {x:'513',y:'23'},
-              youtubeVideoId: 'MaWcS-10NIw',
-              arrayIdVideo: ['MaWcS-10NIw']
-            },*/
+            /*
+             playerObj: {
+              width: '360',
+              height: '200',
+              pos: {x:'513',y:'23'},
+              containerId: 'youtube-container',
+              containerParentId: 'video-wrap',
+              containerParentAutoAlpha: 0,
+              clicktagFunction: clicktagFunction,
+              setIdVideo: 'MaWcS-10NIw',
+              arrayIdVideos: ['MaWcS-10NIw']
+            },
+            */
 
             youtubePlayerOptions: {
               html5: 1,
@@ -135,7 +141,7 @@
         };
 
         document.addEventListener('DOMContentLoaded', function(event) {
-            richmediaYT = new JDMRichmediaYT(document.getElementById('container-banner'),imgPath,frameObj,timelineObj,configPlayer);
+            richmediaYT = new RichmediaYT(document.getElementById('container-banner'),imgPath,frameObj,timelineObj,configPlayer);
         });
     </script>
 </body>
